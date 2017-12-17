@@ -19,4 +19,6 @@ CFStringEncoding akai_StringConvertNSStringEncodingToEncoding(NSStringEncoding e
 @interface NSString (AKAIIStringEncoding)
 - (nullable NSData *)akaii_dataUsingEncoding:(NSStringEncoding)encoding
                         allowLossyConversion:(BOOL)lossy;
+
++ (nullable NSString *)akai_localizedNameOfStringEncoding:(NSStringEncoding)encoding;
 @end

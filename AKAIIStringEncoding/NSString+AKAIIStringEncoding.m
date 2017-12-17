@@ -62,27 +62,47 @@ CFStringEncoding akai_StringConvertNSStringEncodingToEncoding(NSStringEncoding e
 + (void)load {
    static dispatch_once_t onceToken;
    dispatch_once(&onceToken, ^{
-      Class class = [self class];
+      Class instanceClass = [self class];
+      Class class = object_getClass((id)self);
       
-      SEL originalSelector = @selector(dataUsingEncoding:allowLossyConversion:);
-      SEL swizzledSelector = @selector(akaii_dataUsingEncoding:allowLossyConversion:);
+      SEL originalDAESelector = @selector(dataUsingEncoding:allowLossyConversion:);
+      SEL swizzledDAESelector = @selector(akaii_dataUsingEncoding:allowLossyConversion:);
+      Method originalDAEMethod = class_getInstanceMethod(instanceClass, originalDAESelector);
+      Method swizzledDAEMethod = class_getInstanceMethod(instanceClass, swizzledDAESelector);
       
-      Method originalMethod = class_getInstanceMethod(class, originalSelector);
-      Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+      BOOL didAddDAEMethod = class_addMethod(instanceClass,
+                                             originalDAESelector,
+                                             method_getImplementation(swizzledDAEMethod),
+                                             method_getTypeEncoding(swizzledDAEMethod));
       
-      BOOL didAddMethod = class_addMethod(class,
-                                          originalSelector,
-                                          method_getImplementation(swizzledMethod),
-                                          method_getTypeEncoding(swizzledMethod));
-      
-      if (didAddMethod) {
-         class_replaceMethod(class,
-                             swizzledSelector,
-                             method_getImplementation(originalMethod),
-                             method_getTypeEncoding(originalMethod));
+      if (didAddDAEMethod) {
+         class_replaceMethod(instanceClass,
+                             swizzledDAESelector,
+                             method_getImplementation(originalDAEMethod),
+                             method_getTypeEncoding(originalDAEMethod));
       }
       else {
-         method_exchangeImplementations(originalMethod, swizzledMethod);
+         method_exchangeImplementations(originalDAEMethod, swizzledDAEMethod);
+      }
+      
+      SEL originalLNSESelector = @selector(localizedNameOfStringEncoding:);
+      SEL swizzledLNSESelector = @selector(akai_localizedNameOfStringEncoding:);
+      Method originalLNSEMethod = class_getClassMethod(class, originalLNSESelector);
+      Method swizzledLNSEMethod = class_getClassMethod(class, swizzledLNSESelector);
+      
+      BOOL didAddLNSEMethod = class_addMethod(class,
+                                              originalLNSESelector,
+                                              method_getImplementation(swizzledLNSEMethod),
+                                              method_getTypeEncoding(swizzledLNSEMethod));
+      
+      if (didAddLNSEMethod) {
+         class_replaceMethod(class,
+                             swizzledLNSESelector,
+                             method_getImplementation(originalLNSEMethod),
+                             method_getTypeEncoding(originalLNSEMethod));
+      }
+      else {
+         method_exchangeImplementations(originalLNSEMethod, swizzledLNSEMethod);
       }
    });
 }
@@ -103,6 +123,14 @@ CFStringEncoding akai_StringConvertNSStringEncodingToEncoding(NSStringEncoding e
    }
    
    return [NSData dataWithBytes:str length:len];
+}
+
++ (nullable NSString *)akai_localizedNameOfStringEncoding:(NSStringEncoding)encoding {
+   if (encoding == NSAKAIIStringEncoding) {
+      return @"AKAII";
+   }
+   
+   return [self akai_localizedNameOfStringEncoding:encoding];
 }
 
 @end

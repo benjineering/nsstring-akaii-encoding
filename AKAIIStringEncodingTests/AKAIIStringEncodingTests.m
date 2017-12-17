@@ -73,5 +73,14 @@
    XCTAssertTrue([expected isEqualToString:actual]);
 }
 
-@end
+- (void)testLocalizedNameOfAKAIIEncoding {
+   NSString *actual = [NSString localizedNameOfStringEncoding:NSAKAIIStringEncoding];
+   XCTAssertTrue([actual isEqualToString:@"AKAII"]);
+}
 
+- (void)testLocalizedNameOfASCIIEncoding {
+   NSString *actual = [NSString localizedNameOfStringEncoding:NSASCIIStringEncoding];
+   XCTAssertTrue([actual isEqualToString:@"Western (ASCII)"]);
+}
+
+@end
