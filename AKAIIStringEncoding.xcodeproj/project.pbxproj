@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B591FE241FE5F95300431F16 /* AKAIIStringEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = B591FE231FE5F95300431F16 /* AKAIIStringEncoding.h */; };
-		B591FE261FE5F95300431F16 /* AKAIIStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B591FE251FE5F95300431F16 /* AKAIIStringEncoding.m */; };
+		B591FE2E1FE5F98700431F16 /* NSString+AKAIIStringEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = B591FE2C1FE5F98700431F16 /* NSString+AKAIIStringEncoding.h */; };
+		B591FE2F1FE5F98700431F16 /* NSString+AKAIIStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B591FE2D1FE5F98700431F16 /* NSString+AKAIIStringEncoding.m */; };
+		B591FE381FE5F9FD00431F16 /* AKAIIStringEncodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B591FE371FE5F9FD00431F16 /* AKAIIStringEncodingTests.m */; };
+		B591FE3A1FE5F9FD00431F16 /* libAKAIIStringEncoding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B591FE201FE5F95300431F16 /* libAKAIIStringEncoding.a */; };
+		B591FE401FE5FB8C00431F16 /* NSString+AKAIIStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B591FE2D1FE5F98700431F16 /* NSString+AKAIIStringEncoding.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B591FE3B1FE5F9FD00431F16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B591FE181FE5F95300431F16 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B591FE1F1FE5F95300431F16;
+			remoteInfo = AKAIIStringEncoding;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B591FE201FE5F95300431F16 /* libAKAIIStringEncoding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAKAIIStringEncoding.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B591FE231FE5F95300431F16 /* AKAIIStringEncoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKAIIStringEncoding.h; sourceTree = "<group>"; };
-		B591FE251FE5F95300431F16 /* AKAIIStringEncoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKAIIStringEncoding.m; sourceTree = "<group>"; };
+		B591FE2C1FE5F98700431F16 /* NSString+AKAIIStringEncoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AKAIIStringEncoding.h"; sourceTree = "<group>"; };
+		B591FE2D1FE5F98700431F16 /* NSString+AKAIIStringEncoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+AKAIIStringEncoding.m"; sourceTree = "<group>"; };
+		B591FE301FE5F9C000431F16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B591FE351FE5F9FD00431F16 /* AKAIIStringEncodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AKAIIStringEncodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B591FE371FE5F9FD00431F16 /* AKAIIStringEncodingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKAIIStringEncodingTests.m; sourceTree = "<group>"; };
+		B591FE391FE5F9FD00431F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,13 +42,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B591FE321FE5F9FD00431F16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B591FE3A1FE5F9FD00431F16 /* libAKAIIStringEncoding.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B591FE171FE5F95300431F16 = {
 			isa = PBXGroup;
 			children = (
+				B591FE301FE5F9C000431F16 /* README.md */,
 				B591FE221FE5F95300431F16 /* AKAIIStringEncoding */,
+				B591FE361FE5F9FD00431F16 /* AKAIIStringEncodingTests */,
 				B591FE211FE5F95300431F16 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				B591FE201FE5F95300431F16 /* libAKAIIStringEncoding.a */,
+				B591FE351FE5F9FD00431F16 /* AKAIIStringEncodingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -47,10 +75,19 @@
 		B591FE221FE5F95300431F16 /* AKAIIStringEncoding */ = {
 			isa = PBXGroup;
 			children = (
-				B591FE231FE5F95300431F16 /* AKAIIStringEncoding.h */,
-				B591FE251FE5F95300431F16 /* AKAIIStringEncoding.m */,
+				B591FE2C1FE5F98700431F16 /* NSString+AKAIIStringEncoding.h */,
+				B591FE2D1FE5F98700431F16 /* NSString+AKAIIStringEncoding.m */,
 			);
 			path = AKAIIStringEncoding;
+			sourceTree = "<group>";
+		};
+		B591FE361FE5F9FD00431F16 /* AKAIIStringEncodingTests */ = {
+			isa = PBXGroup;
+			children = (
+				B591FE371FE5F9FD00431F16 /* AKAIIStringEncodingTests.m */,
+				B591FE391FE5F9FD00431F16 /* Info.plist */,
+			);
+			path = AKAIIStringEncodingTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -60,7 +97,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B591FE241FE5F95300431F16 /* AKAIIStringEncoding.h in Headers */,
+				B591FE2E1FE5F98700431F16 /* NSString+AKAIIStringEncoding.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +121,24 @@
 			productReference = B591FE201FE5F95300431F16 /* libAKAIIStringEncoding.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		B591FE341FE5F9FD00431F16 /* AKAIIStringEncodingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B591FE3D1FE5F9FD00431F16 /* Build configuration list for PBXNativeTarget "AKAIIStringEncodingTests" */;
+			buildPhases = (
+				B591FE311FE5F9FD00431F16 /* Sources */,
+				B591FE321FE5F9FD00431F16 /* Frameworks */,
+				B591FE331FE5F9FD00431F16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B591FE3C1FE5F9FD00431F16 /* PBXTargetDependency */,
+			);
+			name = AKAIIStringEncodingTests;
+			productName = AKAIIStringEncodingTests;
+			productReference = B591FE351FE5F9FD00431F16 /* AKAIIStringEncodingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -94,6 +149,10 @@
 				ORGANIZATIONNAME = Benjineering;
 				TargetAttributes = {
 					B591FE1F1FE5F95300431F16 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					B591FE341FE5F9FD00431F16 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -112,20 +171,48 @@
 			projectRoot = "";
 			targets = (
 				B591FE1F1FE5F95300431F16 /* AKAIIStringEncoding */,
+				B591FE341FE5F9FD00431F16 /* AKAIIStringEncodingTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B591FE331FE5F9FD00431F16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B591FE1C1FE5F95300431F16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B591FE261FE5F95300431F16 /* AKAIIStringEncoding.m in Sources */,
+				B591FE2F1FE5F98700431F16 /* NSString+AKAIIStringEncoding.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B591FE311FE5F9FD00431F16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B591FE401FE5FB8C00431F16 /* NSString+AKAIIStringEncoding.m in Sources */,
+				B591FE381FE5F9FD00431F16 /* AKAIIStringEncodingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B591FE3C1FE5F9FD00431F16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B591FE1F1FE5F95300431F16 /* AKAIIStringEncoding */;
+			targetProxy = B591FE3B1FE5F9FD00431F16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B591FE271FE5F95300431F16 /* Debug */ = {
@@ -251,6 +338,32 @@
 			};
 			name = Release;
 		};
+		B591FE3E1FE5F9FD00431F16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 55K568X72D;
+				INFOPLIST_FILE = AKAIIStringEncodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = benjineering.AKAIIStringEncodingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B591FE3F1FE5F9FD00431F16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 55K568X72D;
+				INFOPLIST_FILE = AKAIIStringEncodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = benjineering.AKAIIStringEncodingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -268,6 +381,15 @@
 			buildConfigurations = (
 				B591FE2A1FE5F95300431F16 /* Debug */,
 				B591FE2B1FE5F95300431F16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B591FE3D1FE5F9FD00431F16 /* Build configuration list for PBXNativeTarget "AKAIIStringEncodingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B591FE3E1FE5F9FD00431F16 /* Debug */,
+				B591FE3F1FE5F9FD00431F16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
