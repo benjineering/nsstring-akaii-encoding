@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-static const NSStringEncoding AKAIIStringEncoding = 50;
+static const NSStringEncoding NSAKAIIStringEncoding = 50;
+
+static const CFStringEncoding kCFStringEncodingAKAII = 50;
+
+NSStringEncoding akai_StringConvertEncodingToNSStringEncoding(CFStringEncoding encoding);
+
+CFStringEncoding akai_StringConvertNSStringEncodingToEncoding(NSStringEncoding encoding);
 
 @interface NSString (AKAIIStringEncoding)
 - (nullable NSData *)akaii_dataUsingEncoding:(NSStringEncoding)encoding
                         allowLossyConversion:(BOOL)lossy;
 @end
-

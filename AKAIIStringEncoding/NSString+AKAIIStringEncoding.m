@@ -20,7 +20,7 @@
  * -           45          39
  * .           46          40
  */
-const unichar CHAR_TABLE[] = {
+const char CHAR_TABLE[] = {
    '.', '.', '.', '.', '.', '.', '.', '.',
    '.', '.', '.', '.', '.', '.', '.', '.',
    '.', '.', '.', '.', '.', '.', '.', '.',
@@ -38,6 +38,23 @@ const unichar CHAR_TABLE[] = {
    '.', '.', '.', '.', '.', '.', '.', '.',
    '.', '.', '.', '.', '.', '.', '.', '.'
 };
+
+NSStringEncoding akai_StringConvertEncodingToNSStringEncoding(CFStringEncoding encoding) {
+   if (encoding == kCFStringEncodingAKAII) {
+      return NSAKAIIStringEncoding;
+   }
+   
+   return CFStringConvertEncodingToNSStringEncoding(encoding);
+}
+
+
+CFStringEncoding akai_StringConvertNSStringEncodingToEncoding(NSStringEncoding encoding) {
+   if (encoding == NSAKAIIStringEncoding) {
+      return kCFStringEncodingAKAII;
+   }
+   
+   return CFStringConvertNSStringEncodingToEncoding(encoding);
+}
 
 @implementation NSString (AKAIIStringEncoding)
 
@@ -72,7 +89,7 @@ const unichar CHAR_TABLE[] = {
 
 - (nullable NSData *)akaii_dataUsingEncoding:(NSStringEncoding)encoding
                         allowLossyConversion:(BOOL)lossy {
-   if (encoding != AKAIIStringEncoding) {
+   if (encoding != NSAKAIIStringEncoding) {
       return [self akaii_dataUsingEncoding:encoding allowLossyConversion:lossy];
    }
    
@@ -89,4 +106,3 @@ const unichar CHAR_TABLE[] = {
 }
 
 @end
-

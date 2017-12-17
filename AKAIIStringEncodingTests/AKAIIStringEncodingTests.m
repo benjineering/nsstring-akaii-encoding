@@ -24,13 +24,41 @@
 }
 
 - (void)testNSStringEncodingValueIs50 {
-   XCTAssertEqual(AKAIIStringEncoding, 50);
+   XCTAssertEqual(NSAKAIIStringEncoding, 50);
+}
+
+- (void)testCFStringEncodingValueIs50 {
+   XCTAssertEqual(kCFStringEncodingAKAII, 50);
+}
+
+- (void)testConvertAKAIIToNSStringEncoding {
+   NSStringEncoding actual =
+      akai_StringConvertEncodingToNSStringEncoding(kCFStringEncodingAKAII);
+   XCTAssertEqual(actual, NSAKAIIStringEncoding);
+}
+
+- (void)testConvertASCIIToNSStringEncoding {
+   NSStringEncoding actual =
+      akai_StringConvertEncodingToNSStringEncoding(kCFStringEncodingASCII);
+   XCTAssertEqual(actual, NSASCIIStringEncoding);
+}
+
+- (void)testConvertAKAIIToCFStringEncoding {
+   CFStringEncoding actual =
+   akai_StringConvertNSStringEncodingToEncoding(NSAKAIIStringEncoding);
+   XCTAssertEqual(actual, kCFStringEncodingAKAII);
+}
+
+- (void)testConvertASCIIToCFStringEncoding {
+   CFStringEncoding actual =
+      akai_StringConvertNSStringEncodingToEncoding(NSASCIIStringEncoding);
+   XCTAssertEqual(actual, kCFStringEncodingASCII);
 }
 
 - (void)testDataUsingEncodingWithAKAII {
    const char actualBytes[] = { 65, 46, 90, 48, 57, 32, 35, 45, 43, '\0' };
    NSData *actualData = [[NSString stringWithUTF8String:actualBytes]
-                         dataUsingEncoding:AKAIIStringEncoding allowLossyConversion:true];
+                         dataUsingEncoding:NSAKAIIStringEncoding allowLossyConversion:true];
    NSString *actual = [NSString stringWithUTF8String:[actualData bytes]];
    NSString *expected = [NSString stringWithUTF8String:"A.Z09 #-+"];
    XCTAssertTrue([expected isEqualToString:actual]);

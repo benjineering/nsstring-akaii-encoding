@@ -7,12 +7,25 @@
 		<key>AKAIIStringEncoding.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>18</integer>
 		</dict>
 		<key>AKAIIStringEncodingTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B591FE1F1FE5F95300431F16</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B591FE341FE5F9FD00431F16</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
